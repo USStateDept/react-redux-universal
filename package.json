@@ -1,0 +1,39 @@
+{
+  "name": "ubrr-starter",
+  "version": "0.1.0",
+  "description": "Starter/boilerplate React, Redux, universal app. Mostly basic with some industry-standard techniques. No unstable libraries or self-created modules.",
+  "main": "index.js",
+  "scripts": {
+    "test": "NODE_ENV=test karma start app/testing.karma.conf.js --single-run"
+  },
+  "keywords": [
+    "react",
+    "redux",
+    "universal",
+    "lazy-loading",
+    "es6",
+    "babel"
+  ],
+  "author": "Michael Ramos",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^6.9.1",
+    "chai": "^3.5.0",
+    "eslint": "^2.11.1",
+    "karma": "^0.13.22",
+    "karma-mocha": "^1.0.1",
+    "mocha": "^2.5.3",
+    "webpack": "^1.13.1",
+    "webpack-dev-middleware": "^1.6.1",
+    "webpack-hot-middleware": "^2.10.0"
+  },
+  "dependencies": {
+    "history": "^3.0.0",
+    "react": "^15.1.0",
+    "react-dom": "^15.1.0",
+    "react-redux": "^4.4.5",
+    "react-router": "^2.4.1",
+    "react-router-redux": "^4.0.4",
+    "redux": "^3.5.2"
+  }
+}

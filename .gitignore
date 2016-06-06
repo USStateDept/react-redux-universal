@@ -1,0 +1,22 @@
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+
+# DEV generated files #
+######################
+.build/
+.editorconfig
+.vscode
+.eslintrc
+dist/
+
+
+# NPM generated files #
+######################
+/node_modules/
+npm-debug.log
+
+# APP generated files #
+######################
+*.log
