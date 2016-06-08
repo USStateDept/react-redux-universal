@@ -29,7 +29,7 @@ export default class routes {
     this.store = store;
   }
 
-// <Route path="/___other" getComponent={this.____getOtherView.bind(this)} />/
+  // <Route path="/___other" getComponent={this.____getOtherView.bind(this)} />/
   configure() {
     return (
       <Route path="/" component={App}>
