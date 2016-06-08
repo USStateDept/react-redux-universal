@@ -8,7 +8,7 @@ export class Home extends React.Component {
   render() {
     return (
       <div>
-        <h2>Home Page</h2>
+        <h2>Home Page HOT TEST</h2>
         
       </div>
     );

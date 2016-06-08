@@ -22,7 +22,7 @@ export default class Html extends React.Component {
     return (
       <html lang="en-us">
         <head>
-          <title>Redux shopping cart examples</title>
+          <title>React Redux</title>
           {head.base.toComponent()}
           {head.title.toComponent()}
           {head.meta.toComponent()}

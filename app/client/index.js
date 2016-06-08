@@ -1,21 +1,12 @@
 import 'babel-polyfill';
-
-// React/Redux
-import * as React from 'react';
+import  React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import { Router, browserHistory } from 'react-router';
-
-// Redux Setup
+import { Router, browserHistory, match } from 'react-router';
 import StoreRegistry from '../universal/redux/StoreRegistry';
 import { configureClient } from '../universal/configureStore';
 import reducers from '../universal/redux/';
-
-// React Router
 import Routes from '../universal/Routes';
-import { match } from 'react-router';
-
-// Tooling
 import LogMonitor from 'redux-devtools-log-monitor';
 import DockMonitor from 'redux-devtools-dock-monitor';
 import { createDevTools } from 'redux-devtools';
@@ -31,7 +22,7 @@ const DevTools = createDevTools(
 );
 
 const storeRegistry = new StoreRegistry(reducers);
-const routes = new Routes(storRegistry);
+const routes = new Routes(storeRegistry);
 
 match({ history: browserHistory, routes: routes.configure() } , (error, redirectLocation, renderProps) => {
 
@@ -61,7 +52,7 @@ match({ history: browserHistory, routes: routes.configure() } , (error, redirect
 
     // CORE REDUCERS
     module.hot.accept('../universal/redux/index', () => {
-      storRegistry.updateStore(store, require('../universal/redux/indux').default);
+      storeRegistry.updateStore(store, require('../universal/redux/index').default);
     });
 
     //  ADDITIONAL REDUCERS

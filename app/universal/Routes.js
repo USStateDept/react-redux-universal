@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { IndexRoute, Route } from 'react-router';
 
 // include containers for routes
@@ -55,16 +55,10 @@ export default class routes {
   }
 
   getHomeView(location, cb) {
-    if (process.browser) {
-      System.import('./containers/Home')
-        .then(container => this.changeView(location, cb, container))
-        .catch(err => console.log('Lazy Loading Error: Home-- ', err));
-    } else {
-      require.ensure(['./containers/Home'], require => {
-        const container = require('./containers/Home').default;
-        this.changeView(location, cb, container);
-      });
-    }
+    require.ensure(['./containers/Home'], require => {
+      const container = require('./containers/Home').default;
+      this.changeView(location, cb, container);
+    });
   }
 
 }

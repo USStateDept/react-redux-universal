@@ -1,14 +1,14 @@
-import { app } from './reducers/app';
-import { home } from './reducers/home';
+import app from './reducers/app';
+import home from './reducers/home';
 // ... add more here
-import { routeReducer } from 'react-router-redux';
+import { routerReducer } from 'react-router-redux';
 
 const reducers = {
-  app,
-  home,
+  app: app,
+  home: home,
 
   // Redux Router
-  routing: routeReducer
+  routing: routerReducer
 };
 
 export default reducers;

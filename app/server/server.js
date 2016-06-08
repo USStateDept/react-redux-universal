@@ -1,7 +1,7 @@
 import express from 'express';
 import http from 'http';
 import path from 'path';
-import * as React from 'react';
+import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { match, RouterContext, browserHistory } from 'react-router';
 import { createStore } from 'redux';
@@ -9,7 +9,8 @@ import { Provider } from 'react-redux';
 import Routes from '../universal/Routes';
 import { configureServer } from '../universal/configureStore';
 import reducers from '../universal/redux/index';
-import StoreRegistry from '../universal/redux/ReducerRegistry';
+import StoreRegistry from '../universal/redux/StoreRegistry';
+import webpack from 'webpack';
 import webpackConfig from '../../webpack.config';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
@@ -40,6 +41,7 @@ app.get('/*', function (req, res) {
       const initialState = {
         routing: { location: renderProps.location }
       };
+
 
       const store = configureServer(storeRegistry, initialState);
 
