@@ -7,10 +7,8 @@
  * HTML doctype declaration, which is added to the rendered output
  * by the server.js file.
  */
-import  React    from 'react';
-import { 
-  renderToString 
-}                from 'react-dom/server';
+import React from 'react';
+import { renderToString } from 'react-dom/server';
 
 const Helmet = require('react-helmet');
 
