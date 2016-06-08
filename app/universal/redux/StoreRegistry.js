@@ -6,7 +6,7 @@
  *      https://github.com/reactjs/redux/issues/37#issue-85098222
  *      https://github.com/insin/react-examples/tree/master/code-splitting-redux-reducers
  *      http://stackoverflow.com/questions/32968016/how-to-dynamically-load-reducers-for-code-splitting-in-a-redux-application/33044701
- * */
+ **/
 import { combineReducers } from 'redux';
 
 export default class StoreRegistry {
@@ -33,7 +33,6 @@ export default class StoreRegistry {
     }
     this._emitChange = listener;
   }
-
   
   /**
    * Replace the given store and update with the new store

@@ -15,10 +15,7 @@ import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 import Html from './Html';
 
-
 const app = express();
-
-
 
 if(process.env.NODE_ENV != 'production'){
   const compiler = webpack(webpackConfig);
