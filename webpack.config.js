@@ -26,9 +26,9 @@ if (process.env.NODE_ENV === 'production') {
     ],
     module: {
       loaders: [
-        { test: /\.js$/, include: __dirname + '/src', loader: 'babel'},
-        { test: /\.(png|jpg|gif|jpeg)$/, include: __dirname + '/src', loader: 'url-loader?limit=8192'},
-        { test: /\.css$/, include: __dirname + '/src', loader: ExtractTextPlugin.extract('style', 'css') },
+        { test: /\.js$/, include: __dirname + '/app', loader: 'babel'},
+        { test: /\.(png|jpg|gif|jpeg)$/, include: __dirname + '/app', loader: 'url-loader?limit=8192'},
+        { test: /\.css$/, include: __dirname + '/app', loader: ExtractTextPlugin.extract('style', 'css') },
         { test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/, loader : 'file-loader'}
       ]
     },
@@ -60,26 +60,24 @@ if (process.env.NODE_ENV === 'production') {
           exclude: /node_modules/,
           include: __dirname + '/app',
           query: {
-            optional: ['runtime'],
-            stage: 2,
+            presets: ['es2015', 'react', 'stage-2'],
+            cacheDirectory: true,
             env: {
               development: {
-                plugins: [
-                  'react-transform'
-                ],
-                extra: {
-                  'react-transform': {
-                    transforms: [{
-                      transform:  'react-transform-hmr',
-                      imports: ['react'],
-                      locals:  ['module']
-                    },
-                    {
-                      transform: 'react-transform-catch-errors',
-                      imports: ['react','redbox-react' ]
-                    }
-                ]}
-                }
+                "plugins": [
+                  // must be an array with options object as second item
+                  ["react-transform", {
+                    "transforms": [{
+                      "transform": "react-transform-hmr",
+                      "imports": ["react"],
+                      "locals": ["module"]
+                    }, {
+                      // you can have many transforms, not just one
+                      "transform": "react-transform-catch-errors",
+                      "imports": ["react", "redbox-react"]
+                    }]
+                  }]
+                ]
               }
             }
           }
@@ -91,7 +89,7 @@ if (process.env.NODE_ENV === 'production') {
     },
     entry : [
       'webpack-hot-middleware/client',
-      './src/client/index.js'
+      './app/client/index.js'
     ],
     plugins : [
       new webpack.HotModuleReplacementPlugin()

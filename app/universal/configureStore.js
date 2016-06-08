@@ -10,7 +10,7 @@ export function configureClient(storeRegistry, DevTools, initialState) {
   const historyMiddleware = syncHistory(browserHistory);
   const middleware = [thunk, createLogger(), historyMiddleware];
 
-  const reducer = combineReducers(storeRegistry.getReducers());
+  const reducer = combineReducers(storeRegistry.getStore());
 
   const finalCreateStore = compose(
     applyMiddleware(...middleware),
@@ -34,7 +34,7 @@ export function configureClient(storeRegistry, DevTools, initialState) {
 export function configureServer(storeRegistry, initialState) {
   const middleware = [thunk];
 
-  const reducer = combineReducers(storeRegistry.getReducers());
+  const reducer = combineReducers(storeRegistry.getStore());
 
   const finalCreateStore = compose(
     applyMiddleware(...middleware)

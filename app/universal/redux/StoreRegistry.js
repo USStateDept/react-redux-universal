@@ -17,7 +17,7 @@ export default class StoreRegistry {
   }
 
   register(newStore) {
-    this._stores = { ...this._store, ...newStore };
+    this._store = Object.assign({}, this._store,newStore);
     if (this._emitChange != null) {
       this._emitChange(this.getStore());
     }

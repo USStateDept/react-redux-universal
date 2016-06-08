@@ -1,5 +1,4 @@
-// required polyfill
-import "babel-polyfill";
+import 'babel-polyfill';
 
 // React/Redux
 import * as React from 'react';
@@ -32,7 +31,7 @@ const DevTools = createDevTools(
 );
 
 const storeRegistry = new StoreRegistry(reducers);
-const routes = new Routes(reducerRegistry);
+const routes = new Routes(storRegistry);
 
 match({ history: browserHistory, routes: routes.configure() } , (error, redirectLocation, renderProps) => {
 
@@ -65,7 +64,8 @@ match({ history: browserHistory, routes: routes.configure() } , (error, redirect
       storRegistry.updateStore(store, require('../universal/redux/indux').default);
     });
 
-    // TODO ADDITIONAL REDUCERS
+    //  ADDITIONAL REDUCERS
+    module.hot.accept('../universal/Routes', () => {});
    
   }
 
