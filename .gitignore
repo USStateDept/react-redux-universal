@@ -8,7 +8,6 @@
 .build/
 .editorconfig
 .vscode
-.eslintrc
 dist/
 
 

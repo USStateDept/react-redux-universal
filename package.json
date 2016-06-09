@@ -1,10 +1,11 @@
 {
-  "name": "ubrr-starter",
+  "name": "react-redux-universal",
   "version": "0.1.0",
   "description": "Starter/boilerplate React, Redux, universal app. Mostly basic with some industry-standard techniques. No unstable libraries or self-created modules.",
   "main": "index.js",
   "scripts": {
-    "test": "NODE_ENV=test karma start app/tests/karma.conf.js --single-run"
+    "test": "NODE_ENV=test karma start app/tests/karma.conf.js --single-run",
+    "start":"node app/server/index"
   },
   "keywords": [
     "react",
