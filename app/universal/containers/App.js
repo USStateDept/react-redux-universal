@@ -7,6 +7,8 @@
  */
 import React, { Component, PropTypes } from 'react';
 
+import Footer from '../components/Footer';
+
 // import footer/header/static comps
 class App extends Component {
   render() {
@@ -14,6 +16,7 @@ class App extends Component {
       <div>
         {<h1>Welcome To The app </h1>}
         {this.props.children}
+        <Footer />
       </div>
     );
   }

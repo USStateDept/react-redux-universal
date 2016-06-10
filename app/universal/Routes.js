@@ -33,7 +33,7 @@ export default class routes {
   configure() {
     return (
       <Route path="/" component={App}>
-        <IndexRoute getComponent={this.getHomeView.bind(this)} />
+        <IndexRoute getComponent={this.getView.bind(this,'Home')} />
         
         
       </Route>
@@ -54,11 +54,13 @@ export default class routes {
     }
   }
 
-  getHomeView(location, cb) {
-    require.ensure(['./containers/Home'], require => {
-      const container = require('./containers/Home').default;
+  // Global Change View Function
+  getView(view, location, cb) {
+    require.ensure([], require => {
+      const container = require(`./containers/${view}`).default;
       this.changeView(location, cb, container);
     });
   }
+
 
 }
