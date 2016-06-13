@@ -7,6 +7,7 @@
  */
 import React, { Component, PropTypes } from 'react';
 
+import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
 // import footer/header/static comps
@@ -14,8 +15,8 @@ class App extends Component {
   render() {
     return (
       <div>
-        {<h1>Welcome To The app</h1>}
-        {this.props.children}
+        <Navbar />
+            {this.props.children}
         <Footer />
       </div>
     );

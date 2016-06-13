@@ -47,9 +47,7 @@ app.get('/*', function (req, res) {
 
       const component = (
             <Provider store={store}>
-                <div>
                 <RouterContext {...renderProps} />
-                </div>
             </Provider>
     	);
 

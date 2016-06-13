@@ -3,10 +3,10 @@
 // } from '../actions/dynamic';
 
 const initialState = {
-  
+  test: 0
 };
 
-export default function home(state = initialState, action) {
+export default function dashboard(state = initialState, action) {
   switch (action.type) {
   case "action_here variable":
     break;
