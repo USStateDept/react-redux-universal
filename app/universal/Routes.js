@@ -4,9 +4,6 @@ import { IndexRoute, Route } from 'react-router';
 // include containers for routes
 import App from './containers/App';
 
-// route handlers
-import { endLoading } from './redux/reducers/app';
-
 // Require ensure shim
 if(typeof require.ensure !== "function") {
   require.ensure = function(d, c) { c(require); };
@@ -43,7 +40,7 @@ export default class routes {
   changeView(location, cb, component, reducer) {
     // load reducers seperatly
     if (reducer) {
-      storeRegistry.register(reducer);
+      this.storeRegistry.register(reducer);
     }
     // load in the component
     cb(null, component);
@@ -67,7 +64,8 @@ export default class routes {
   getDashboardView(nextState, cb) {
     require.ensure([], require => {
       const container = require('./containers/Dashboard').default;
-      this.changeView(nextState.location, cb, container);
+      const reducer = { ['dashboard']: require('./redux/reducers/dashboard').default };
+      this.changeView(nextState.location, cb, container, reducer); 
     });
   }
 
